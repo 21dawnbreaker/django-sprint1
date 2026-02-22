@@ -46,8 +46,13 @@ posts = [
 def index(request):
     return render(request, 'blog/index.html')
 
-def post_detail(request, pk):
-    pass
+def post_detail(request, id_val: int):
+    context = {
+        'post': posts[id_val],
+    }
+    return render(request, 'blog/detail.html', context)
 
-def category_posts(request, pk):
-    pass
+def category_posts(request, category_val):
+    # context = [post for post in posts if post['category'] == category_val]
+    context = {}
+    return render(request, 'blog/category.html', context)
