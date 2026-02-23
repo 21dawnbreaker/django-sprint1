@@ -6,11 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="icon" href="../../static_dev/img/fav/favicon.ico" type="image">
-    <link rel="apple-touch-icon" sizes="180x180" href="../../static_dev/img/fav/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../../static_dev/img/fav/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../../static_dev/img/fav/favicon-16x16.png">
-    <link rel="stylesheet" href="../../static_dev/css/bootstrap.min.css">
+    <link rel="icon" href="{% static 'img/fav/favicon.ico' %}" type="image">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <title>
       {% block title %}
         Nothing in title block
@@ -21,10 +21,10 @@
     {% include "includes/header.html" %}
     <main>
       <div class="container py-5">
-        {% block div %}
-          Nothing in div block
+        {% block content %}
+          Nothing in content block
         {% endblock %}
-      </div>>
+      </div>
     </main>
     {% include "includes/footer.html" %}
   </body>

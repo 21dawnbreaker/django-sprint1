@@ -1,6 +1,7 @@
+from django.http import Http404
 from django.shortcuts import render
 
-posts = [
+posts: list[dict[str, int | str]] = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
@@ -43,18 +44,25 @@ posts = [
     },
 ]
 
+post_per_key = dict()
+for post in posts:
+    post_per_key[post['id']] = post
+
 
 def index(request):
     context = {
-        'posts': posts[::-1],
+        'posts': reversed(posts),
     }
     return render(request, 'blog/index.html', context)
 
 
-def post_detail(request, id_val: int):
-    context = {
-        'post': posts[id_val],
-    }
+def post_detail(request, post_id: int):
+    if post_id in post_per_key.keys():
+        context = {
+            'post': post_per_key[post_id],
+        }
+    else:
+        raise Http404('Post not found')
     return render(request, 'blog/detail.html', context)
 
 
