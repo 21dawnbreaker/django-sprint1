@@ -17,7 +17,7 @@
       {{ post.text|truncatewords:10 }}
     {% endif %}
   </p>
-  {% if detailed_text == False %}
+  {% if detailed_text is None %}
     <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
   {% endif %}
 </article>

@@ -57,12 +57,11 @@ def index(request):
 
 
 def post_detail(request, post_id: int):
-    if post_id in post_per_key.keys():
-        context = {
-            'post': post_per_key[post_id],
-        }
-    else:
+    if post_id not in post_per_key:
         raise Http404('Post not found')
+    context = {
+        'post': post_per_key[post_id],
+    }
     return render(request, 'blog/detail.html', context)
 
 
